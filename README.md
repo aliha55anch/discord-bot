@@ -1,11 +1,10 @@
 # Discord AI Bot
 
-A Discord bot powered by **Groq AI (Llama 3.3 70B)** that responds to any message intelligently. Created by Ali Hassan.
+A Discord bot powered by **Groq AI (Llama 3.3 70B)** that responds to any message intelligently.
 
 ## Features
 
 - AI-powered replies using Groq's free Llama 3.3 70B model
-- `!clear` — deletes the bot's recent messages in the channel
 - Responses are automatically truncated to fit Discord's 2000 character limit
 
 ## Prerequisites
@@ -36,7 +35,6 @@ A Discord bot powered by **Groq AI (Llama 3.3 70B)** that responds to any messag
 8. Select these permissions under Bot Permissions:
    - **Send Messages**
    - **Read Message History**
-   - **Manage Messages** (for !clear)
 9. Copy the generated URL, open it in your browser, and add the bot to your server
 
 ### 3. Clone & Install
