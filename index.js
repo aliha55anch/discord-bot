@@ -1,8 +1,16 @@
 // require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 const Groq = require("groq-sdk");
-
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+app.get("/", (req, res) => {
+  res.send("Discord Bot is running!");
+});
+
+
 
 const client = new Client({
   intents: [
@@ -11,6 +19,7 @@ const client = new Client({
     GatewayIntentBits.MessageContent,
   ],
 });
+
 
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
@@ -46,3 +55,7 @@ client.on("messageCreate", async (message) => {
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
+
+app.listen(PORT, () => {
+  console.log(`Web server listening on ${PORT}`);
+});
