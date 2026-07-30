@@ -1,9 +1,8 @@
+// require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 const Groq = require("groq-sdk");
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-console.log("GROQ_API_KEY is set:", !!process.env.GROQ_API_KEY);
-
 
 const client = new Client({
   intents: [
@@ -47,4 +46,3 @@ client.on("messageCreate", async (message) => {
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
-console.log("DISCORD_BOT_TOKEN is set:", !!process.env.DISCORD_BOT_TOKEN);
