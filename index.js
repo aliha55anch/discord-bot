@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 const Groq = require("groq-sdk");
 const express = require("express");
