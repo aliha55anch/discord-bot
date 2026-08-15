@@ -36,9 +36,16 @@ client.on("messageCreate", async (message) => {
   }
 
   try {
+    const userMessage = message.content.toLowerCase();
+    const isAskingAboutCreator = /who (created|made|built|developed|created you)|who are you|creator|developer/i.test(userMessage);
+    
+    const systemPrompt = isAskingAboutCreator 
+      ? "You are a Discord AI bot created by Ali Hassan. When asked who you are or who created you, mention that."
+      : "You are a helpful Discord AI bot assistant.";
+    
     const completion = await groq.chat.completions.create({
       messages: [
-        { role: "system", content: "You are a Discord AI bot created by Ali Hassan. When asked who you are, introduce yourself as that." },
+        { role: "system", content: systemPrompt },
         { role: "user", content: message.content },
       ],
       model: "llama-3.3-70b-versatile",
